@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="author" content="Carlos">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Mundo del Automóvil</title>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    
+    header {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+      text-align: center;
+    }
+    
+    .header-banner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+    
+    .header-content {
+      position: relative;
+      z-index: 2;
+      padding-top: 80px;
+      color: white;
+      text-shadow: 0 0 10px rgba(0,0,0,0.7);
+    }
+    
+    .header-content h1 {
+      color: white;
+      font-size: 3em;
+      margin: 0;
+    }
+    
+    nav {
+      background-color: #333;
+      padding: 10px 0;
+      text-align: center;
+      position: relative;
+      z-index: 3;
+    }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      padding: 5px 10px;
+      background-color: #666;
+      cursor: pointer;
+      display: inline-block;
+    }
+    
+    nav a:hover {
+      background-color: #b30000;
+    }
+    
+    main {
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: white;
+      border: 1px solid #ddd;
+    }
+    
+    section {
+      display: none;
+      margin-bottom: 30px;
+    }
+    
+    section.active {
+      display: block;
+      animation: fadeIn 0.5s ease-in;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    h1, h2, h3 {
+      color: #b30000;
+    }
+    
+    footer {
+      background-color: #333;
+      color: #ccc;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 20px;
+    }
+    
+    img {
+      max-width: 100%;
+      border: 1px solid #ddd;
+      margin: 10px 0;
+    }
+    
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+    
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 20px 0;
+    }
+    
+    .gallery-item {
+      flex: 1;
+      min-width: 200px;
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    
+    .card {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin: 15px 0;
+    }
+    
+    .timeline-item {
+      margin: 20px 0;
+      padding-left: 20px;
+      border-left: 3px solid #b30000;
+    }
+    
+    .car-highlight {
+      display: flex;
+      margin: 20px 0;
+      gap: 20px;
+    }
+    
+    .car-highlight img {
+      max-width: 300px;
+    }
+    
+    .form-group {
+      margin: 15px 0;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      box-sizing: border-box;
+    }
+    
+    button {
+      background-color: #b30000;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      background-color: #990000;
+    }
+    
+    @media (max-width: 768px) {
+      .car-highlight {
+        flex-direction: column;
+      }
+      
+      .car-highlight img {
+        max-width: 100%;
+      }
+      
+      nav a {
+        display: block;
+        margin: 5px auto;
+        width: 80%;
+      }
+      
+      header {
+        height: 200px;
+      }
+      
+      .header-content {
+        padding-top: 50px;
+      }
+      
+      .header-content h1 {
+        font-size: 2em;
+      }
+    }
+</style>
+</head>
+<body>
+  <header>
+    <img class="header-banner" src="https://us.123rf.com/450wm/yganko/yganko2303/yganko230300936/199777011-ilustraci%C3%B3n-de-coche-deportivo-rojo-generativo-ai.jpg?ver=6" alt="banner">
+    <div class="header-content">
+      <h1>Mundo del Automovil</h1>
+    </div>
+  </header>
+  
+  <nav>
+    <a data-target="inicio">Inicio</a>
+    <a data-target="historia">Historia</a>
+    <a data-target="tecnologia">Tecnología</a>
+    <a data-target="galeria">Galería</a>
+    <a data-target="contacto">Contacto</a>
+  </nav>
+  
+  <main>
+    <section id="inicio" class="active">
+      <h2>Bienvenido al Mundo del Automovil</h2>
+      <p>Este pequeño espacio esta hecho para todos aquellos son amantes de los automoviles, en el mismo veran un poco acerca de su historia asi como tambien veran alugunos modelos de autos si desean ver o comprar algunos de estos.</p>
+
+      <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/jVFGYK91Gvw?si=tZXm2Kchm6ezO04S" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      
+      <div class="card">
+      <h3>Últimas Noticias</h3>
+      <p>Los precios de los autos se dispararán en miles de dólares debido a los aranceles de Trump. Sucederá antes de lo esperado</p>
+      </div>
+      
+      <div class="card">
+      <h3>Próximos Eventos</h3>
+      <p>LATIN TYRE & AUTO PARTS EXPO son las ferias de neumáticos y autopartes más importantes de América Latina y el lugar ideal si desea hacer crecer su negocio en América Latina y el Caribe. La próxima edición será en el nuevo "Centro de Convenciones de Panamá" en Panamá, que cuenta con 59.000 m2 de espacio.
+	Estarán presentes más de 650 expositores internacionales, desde fabricantes de neumáticos, empresas de servicio, reencauche y reparación de neumáticos, fabricantes de autopartes, herramientas y equipos hasta empresas líderes en la industria de lubricantes y aceites.
+Sesiones educativas y de capacitación con los principales líderes de la industria, eventos de networking y mucho más están incluidos en su registro.</p>
+      </div>
+      
+      <div class="card">
+      <h3>Destacado</h3>
+      <p>Según la revista Auto Test, Mercedes-Benz, BMW, Audi, Porsche y Lamborghini encabezan el ranking de las mejores marcas de autos</p>
+      </div>
+    </section>
+    
+    <section id="historia">
+      <h2>Historia del Automóvil</h2>
+      <p>También llamado carro, auto o coche, el automóvil es un vehículo terrestre y es una de las más exitosas invenciones del ser humano. La historia del automóvil involucra la serie de eventos, innovaciones y conocimientos científico-tecnológicos y su evolución continúa hasta la actualidad.
+	Los motores pasaron de ser a vapor a funcionar por combustión de petróleo. Incluso, existen motores eléctricos que compiten con la eficiencia de un motor a combustible.
+	La palabra automóvil proviene del griego y del latín: la palabra autós que significa "por sí mismo" y la palabra mobilis que significa "que se mueve".</p>
+      
+      <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/k66x3bYG6lM?si=R2EPUTiANL9XBjfR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      
+      <div class="timeline-item">
+        <h3>1886</h3>
+        <p>Karl Benz desarrolla el primer vehículo con motor de combustión interna. Este triciclo motorizado es considerado el primer automóvil de la historia.</p>
+        <img src="https://emprendedor.com/wp-content/uploads/2024/08/karl-benz-el-padre-del-automovil-moderno.jpg" alt="Primer automóvil de Benz">
+      </div>
+      
+      <div class="timeline-item">
+        <h3>1908</h3>
+        <p>Henry Ford revoluciona la industria con el Modelo T, introduciendo la producción en cadena que hizo los automóviles accesibles a las masas.</p>
+        <img src="https://s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2017/01/13174008/HF4-1024x576.jpg" alt="Ford Modelo T">
+      </div>
+      
+      <div class="timeline-item">
+        <h3>1950s</h3>
+        <p>La era dorada de los autos americanos: grandes diseños, potentes motores V8 y el nacimiento de la cultura hot rod.</p>
+        <img src="https://www.muchoneumatico.com/blog/wp-content/uploads/2022/07/Coches-Hot-Rod-2.jpg" alt="Chevrolet Bel Air 1958">
+      </div>
+      
+      <div class="timeline-item">
+        <h3>1990s</h3>
+        <p>Los fabricantes japoneses dominan el mercado con vehículos confiables y eficientes. Aparecen los primeros modelos híbridos.</p>
+        <img src="https://news.dupontregistry.com/wp-content/uploads/2024/10/Supra-Main-1080x570.jpg" alt="Toyota Supra 1994">
+      </div>
+      
+      <div class="timeline-item">
+        <h3>2020s</h3>
+        <p>La revolución eléctrica: vehículos con autonomías superiores a 500 km, conducción autónoma y tecnologías de conectividad avanzadas.</p>
+        <img src="https://hips.hearstapps.com/hmg-prod/images/2025-tesla-model-s-1-672d42e172407.jpg?crop=0.465xw:0.466xh;0.285xw,0.361xh&resize=2048:*" alt="Tesla Model S">
+      </div>
+    </section>
+    
+    <section id="tecnologia">
+      <h2>Tecnología Automotriz</h2>
+      <p>Los autos modernos integran más tecnología que nunca, no solo para comodidad sino también para la seguridad y la eficiencia energética.</p>
+      
+      <div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/Exq_RPdBvRU?si=ujlVRluxGYuWqAMx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      
+      <div class="car-highlight">
+        <div>
+          <h3>Conducción Autónoma</h3>
+          <p>Vehículos capaces de circular sin intervención humana gracias a sensores LiDAR, cámaras 360° y software de inteligencia artificial que procesa datos en tiempo real.</p>
+        </div>
+      </div>
+      
+      <div class="car-highlight">
+        <img src="https://www.fundacionmapfre.org/media/educacion-divulgacion/seguridad-vial/sistemas-adas/que-son-los-sistemas-adas-768x480-1.png" alt="Sistema ADAS">
+        <div>
+          <h3>Sistemas ADAS</h3>
+          <p>Asistencias al conductor como frenado automático de emergencia, control de crucero adaptativo, asistente de mantenimiento de carril y detección de ángulo muerto.</p>
+        </div>
+      </div>
+      
+      <div class="car-highlight">
+        <div>
+          <h3>Electrificación</h3>
+          <p>Motores eléctricos con baterías de alta densidad energética, puntos de carga ultrarrápida y sistemas de recuperación de energía que aumentan la autonomía.</p>
+        </div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Electric_Car_recharging.jpg" alt="Auto eléctrico">
+      </div>
+      
+      <div class="car-highlight">
+        <img src="https://dplnews.com/wp-content/uploads/2021/09/dplnews_vehiculo-conectado_mc70921.jpeg" alt="Conectividad en autos">
+        <div>
+          <h3>Conectividad</h3>
+          <p>Integración con smartphones, actualizaciones de software remotas, navegación inteligente con tráfico en tiempo real, y sistemas de entretenimiento avanzados.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section id="galeria">
+      <h2>Galería de Autos</h2>
+      <p>Una colección visual de modelos emblemáticos a lo largo de la historia:</p>
+      
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="https://mgarage.com.mx/wp-content/cache/thumbnails/2016/11/AAAA1912-ford-model-t-1200x1200.jpg" alt="Ford Modelo T">
+          <p>Ford Modelo T (1910)</p>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="https://images.squarespace-cdn.com/content/v1/5e7918a4b1051f6e49dcfdb1/1651848769705-8Z84Z8DY3D37TGJ0A175/DSC_9612.jpg" alt="Chevrolet Bel Air">
+          <p>Chevrolet Bel Air (1958)</p>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="https://pugachev.miami/wp-content/uploads/2019/11/Rent-Lamborghini-Aventador-Matte-in-Miami-1_obr2-1030x625.jpg" alt="Lamborghini Aventador">
+          <p>Lamborghini Aventador</p>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="https://images-porsche.imgix.net/-/media/D41AD8E7D55E45BDA5CFE8651F497A74_145CD2F719DF4CC88352C7DC0B71C560_CZ23V20OX0038-911-gt3-rs-side?w=2560&h=1440&q=45&crop=faces%2Centropy%2Cedges&auto=format" alt="Porsche 911 GT3">
+          <p>Porsche 911 GT3</p>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="https://hips.hearstapps.com/hmg-prod/images/2025-tesla-model-s-1-672d42e172407.jpg?crop=0.465xw:0.466xh;0.285xw,0.361xh&resize=2048:*" alt="Tesla Model S">
+          <p>Tesla Model S</p>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="https://hips.hearstapps.com/hmg-prod/images/2025-rivian-r1t-california-dune-pr-109-67b602d7cdefe.jpg?crop=0.572xw:0.589xh;0.276xw,0.290xh&resize=2048:*" alt="Rivian R1T">
+          <p>Rivian R1T</p>
+        </div>
+      </div>
+    </section>
+    
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p>Tienes preguntas o deseas colaborar con nosotros?</p>
+      
+      <form id="contact-form">
+        <div class="form-group">
+          <label for="name">Nombre:</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="subject">Asunto:</label>
+          <input type="text" id="subject" name="subject" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Mensaje:</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        
+        <button type="submit">Enviar Mensaje</button>
+      </form>
+      
+      <div style="margin-top: 30px;">
+        <p><strong>Email:</strong> mundodelautomovil@gmail.com</p>
+        <p><strong>Teléfono:</strong> +507 6545-3245</p>
+        <p><strong>Dirección:</strong> via argentina, Ciudad Automotriz</p>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <p>&copy; Mundo del Automóvil</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Navegación principal corregida
+      const navLinks = document.querySelectorAll('nav a');
+      const sections = document.querySelectorAll('section');
+      
+      // Función para mostrar una sección específica
+      function showSection(sectionId) {
+        sections.forEach(section => {
+          section.classList.remove('active');
+          if (section.id === sectionId) {
+            section.classList.add('active');
+          }
+        });
+      }
+      
+      // Asignar evento a cada enlace de navegación
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('data-target');
+          showSection(targetId);
+        });
+      });
+      
+      // Manejar el formulario de contacto
+      const contactForm = document.getElementById('contact-form');
+      
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          const name = document.getElementById('name').value;
+          const email = document.getElementById('email').value;
+          const subject = document.getElementById('subject').value;
+          const message = document.getElementById('message').value;
+          
+          if (!name || !email || !subject || !message) {
+            alert('Por favor completa todos los campos');
+            return;
+          }
+          
+          if (!email.includes('@')) {
+            alert('Por favor ingresa un email válido');
+            return;
+          }
+          
+          alert('¡Gracias por su mensaje! Te responderemos pronto.');
+          contactForm.reset();
+        });
+      }
+    });
+  </script>
+</body>
+</html>
